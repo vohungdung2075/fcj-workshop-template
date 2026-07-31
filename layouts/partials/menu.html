@@ -48,7 +48,7 @@
               <select id="select-language" onchange="location = this.value;">
                 {{ $pageLanguage := .Page.Language.Lang }}
                 {{ range .Page.AllTranslations }}
-                {{ $langLabel := .Language.Params.label | default .Language.Lang }}
+                {{ $langLabel := .Language.LanguageName | default .Language.Lang }}
                 {{ if eq $pageLanguage .Language.Lang }}
                 <option
                   id="{{ .Language.Lang }}"
