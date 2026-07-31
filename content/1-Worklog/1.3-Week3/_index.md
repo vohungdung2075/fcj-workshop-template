@@ -1,57 +1,43 @@
 ---
 title: "Week 3 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-06-15
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 3 objectives
 
-### Week 3 Objectives:
+* Understand how AWS provides and manages relational databases through Amazon RDS.
+* Learn the fundamental NoSQL database concepts with Amazon DynamoDB.
+* Understand how Amazon CloudFront distributes content and improves application access speed.
+* Learn how to package applications with Docker and store Docker images in Amazon ECR.
+* Practice combining AWS services to prepare for application deployment in the following weeks.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks completed during the week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start date | Completion date | Reference material |
+| --- | --- | --- | --- | --- |
+| **2** | - Studied **Amazon Relational Database Service (RDS)**.<br>- Explored its primary components and concepts:<br>&emsp;+ Database engines<br>&emsp;+ DB instances<br>&emsp;+ DB instance classes<br>&emsp;+ Storage<br>&emsp;+ Security groups<br>&emsp;+ Automated backups<br>&emsp;+ Multi-AZ deployments<br>- Learned how applications securely connect to an RDS database within a VPC. | 06/15/2026 | 06/15/2026 | https://000005.awsstudygroup.com/ |
+| **3** | - Studied the NoSQL database model and **Amazon DynamoDB**.<br>- Explored the fundamental DynamoDB components:<br>&emsp;+ Tables and items<br>&emsp;+ Attributes<br>&emsp;+ Partition keys<br>&emsp;+ Sort keys<br>&emsp;+ Capacity modes<br>- Created a table and practiced basic create, read, update, and delete operations. | 06/16/2026 | 06/16/2026 | https://000060.awsstudygroup.com/ |
+| **4** | - Studied **Amazon CloudFront** and the role of a Content Delivery Network (CDN).<br>- Explored the main concepts:<br>&emsp;+ Distributions<br>&emsp;+ Origins<br>&emsp;+ Edge locations<br>&emsp;+ Cache behaviors<br>&emsp;+ Cache invalidations<br>- Created a CloudFront distribution with an S3 bucket as its origin.<br>- Learned how to restrict direct S3 access and deliver content through HTTPS. | 06/17/2026 | 06/17/2026 | https://000094.awsstudygroup.com/ |
+| **5** | - Studied **Docker** fundamentals and the role of containers in software development.<br>- Distinguished between Docker images, containers, and registries.<br>- Learned the Dockerfile structure and its basic instructions:<br>&emsp;+ FROM<br>&emsp;+ WORKDIR<br>&emsp;+ COPY<br>&emsp;+ RUN<br>&emsp;+ EXPOSE<br>&emsp;+ CMD<br>- Created a Dockerfile, built an image, and ran a sample application in a container. | 06/18/2026 | 06/18/2026 | https://000015.awsstudygroup.com/ |
+| **6** | - Studied **Amazon Elastic Container Registry (ECR)** and the Docker image management workflow.<br>- Practiced:<br>&emsp;+ Creating an ECR repository<br>&emsp;+ Authenticating Docker with ECR<br>&emsp;+ Tagging a Docker image<br>&emsp;+ Pushing an image to ECR<br>&emsp;+ Pulling an image from ECR<br>- Ran a container from an image stored in ECR and reviewed the application packaging, storage, and distribution workflow. | 06/19/2026 | 06/19/2026 | https://000017.awsstudygroup.com/ |
 
+### Week 3 achievements
 
-### Week 3 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
+* Understood the role of Amazon RDS and its fundamental components:
+  * Database engines
+  * DB instances
   * Storage
-  * Networking 
-  * Database
-  * ...
+  * Security groups
+  * Automated backups
+  * Multi-AZ deployments
 
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Learned the Amazon DynamoDB concepts of tables, items, attributes, partition keys, and sort keys.
+* Understood how Amazon CloudFront uses edge locations and caching to distribute content.
+* Created a CloudFront distribution with Amazon S3 as its origin.
+* Distinguished between Docker images, containers, and registries.
+* Created a Dockerfile, built a Docker image, and ran a sample application in a container.
+* Created an Amazon ECR repository and completed the authentication, tagging, push, and pull workflow for Docker images.
+* Built a foundation in databases, content delivery, and containers to prepare for deploying applications on AWS.

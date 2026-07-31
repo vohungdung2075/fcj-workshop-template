@@ -19,10 +19,20 @@
   }
 </style>
 <div class="ghContributors">
-  {{ $url := .Get 0 }} {{ range getJSON $url }}
+  {{ $url := .Get 0 }}
+  {{ $contributors := slice }}
+  {{ with try (resources.GetRemote $url) }}
+    {{ with .Err }}
+      {{ warnf "Unable to load GitHub contributors from %q: %s" $url . }}
+    {{ else with .Value }}
+      {{ $contributors = .Content | transform.Unmarshal }}
+    {{ end }}
+  {{ end }}
+  {{ range $contributors }}
   <div>
     <img
       src="{{.avatar_url}}"
+      alt="GitHub avatar of {{.login}}"
       class="inline"
       width="32"
       height="32"

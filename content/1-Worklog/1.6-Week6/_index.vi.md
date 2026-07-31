@@ -1,58 +1,42 @@
 ---
 title: "Worklog Tuần 6"
-date: 2024-01-01
-weight: 1
+date: 2026-07-06
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu tuần 6
 
-### Mục tiêu tuần 6:
+* Tích hợp trợ lý AI vào LearnSphere với kiến trúc provider có thể thay đổi.
+* Cho phép AI sử dụng nội dung document của bài học để chat, tóm tắt và sinh câu hỏi.
+* Hỗ trợ OCR đối với PDF scan và kiểm soát an toàn quá trình lập chỉ mục tài liệu.
+* Hoàn thiện quản lý lịch sử, giới hạn request và theo dõi token AI.
+* Bảo đảm các luồng upload S3 và multipart không tạo file rác.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc thực hiện trong tuần
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| **2** | - Tích hợp Amazon Bedrock và Groq cho chức năng AI.<br>- Xây dựng lớp AI Provider để có thể chuyển model bằng biến môi trường mà không thay đổi controller.<br>- Bổ sung provider chính, provider dự phòng và cơ chế tự động chuyển khi gặp throttling, timeout hoặc lỗi dịch vụ.<br>- Chuẩn hóa lỗi AI gồm quota, quyền truy cập, credentials, cấu hình, timeout và service unavailable.<br>- Lưu model ID, số input token và output token để hỗ trợ theo dõi chi phí. | 06/07/2026 | 06/07/2026 | https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html<br>https://console.groq.com/docs/text-chat<br>https://docs.aws.amazon.com/general/latest/gr/bedrock.html |
+| **3** | - Hoàn thiện API chat AI theo ngữ cảnh khóa học và bài học.<br>- Kiểm tra quyền truy cập để học viên chỉ sử dụng AI trong khóa học đã đăng ký active và tutor chỉ truy cập khóa học sở hữu.<br>- Gửi các lượt chat gần nhất làm ngữ cảnh và lưu lịch sử vào MongoDB.<br>- Bổ sung API lấy và xóa lịch sử chat.<br>- Thêm rate limit theo user và phản hồi rõ các lỗi 401, 403, AI_THROTTLED, AI_RATE_LIMITED. | 07/07/2026 | 07/07/2026 | https://console.groq.com/docs/rate-limits<br>https://console.groq.com/docs/errors<br>https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html |
+| **4** | - Xây dựng quá trình lập chỉ mục document được lưu trên Amazon S3.<br>- Trích xuất nội dung từ PDF và DOCX bằng pdf-parse và Mammoth.<br>- Lưu trạng thái index, nội dung đã chuẩn hóa và dấu vết nguồn document vào bài học.<br>- Tự động lập chỉ mục khi tutor sinh câu hỏi hoặc tóm tắt từ document chưa xử lý.<br>- Ngăn AI tạo nội dung không dựa trên tài liệu khi document không thể đọc được. | 08/07/2026 | 08/07/2026 | https://www.npmjs.com/package/pdf-parse<br>https://github.com/mwilliamson/mammoth.js/<br>https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html |
+| **5** | - Bổ sung OCR cho PDF scan bằng Tesseract với ngôn ngữ tiếng Việt.<br>- Render và xử lý lần lượt từng trang để giảm sử dụng bộ nhớ.<br>- Cấu hình số trang tối đa, chiều rộng ảnh, timeout và số tác vụ OCR chạy đồng thời.<br>- Bổ sung run ID, kiểm tra document thay đổi và cơ chế chạy lại job bị gián đoạn.<br>- Ngăn kết quả OCR cũ ghi đè chỉ mục của document mới. | 09/07/2026 | 09/07/2026 | https://github.com/naptha/tesseract.js/<br>https://github.com/naptha/tesseract.js/blob/master/docs/api.md |
+| **6** | - Hoàn thiện chức năng tóm tắt document và lưu kết quả để học viên sử dụng lại, tránh gọi AI lặp lại.<br>- Hoàn thiện sinh câu hỏi quiz theo số lượng và mức độ cơ bản, trung bình, nâng cao.<br>- Kiểm tra và sửa cấu trúc JSON do AI trả về trước khi hiển thị bản nháp cho tutor.<br>- Hoàn thiện upload presigned URL và multipart cho video dung lượng lớn.<br>- Bổ sung UploadSession, retry/abort multipart, dọn orphan object và hàng đợi retry khi xóa S3 thất bại. | 10/07/2026 | 10/07/2026 | https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html<br>https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html<br>https://console.groq.com/docs/text-chat |
 
+### Kết quả đạt được tuần 6
 
-### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Xây dựng lớp AI Provider hỗ trợ Amazon Bedrock, Groq và cơ chế fallback tự động.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Chuẩn hóa các lỗi AI để Frontend hiển thị thông báo phù hợp.
+* Hoàn thiện chat AI theo ngữ cảnh bài học cùng API lấy và xóa lịch sử.
+* Lưu model ID và số input/output token của từng phản hồi AI.
+* Thêm giới hạn request AI theo từng user để kiểm soát chi phí.
+* Trích xuất và lập chỉ mục được nội dung:
+  * PDF có lớp văn bản
+  * DOCX
+  * PDF scan thông qua OCR
+* Bảo vệ quá trình OCR bằng giới hạn tài nguyên, timeout, run ID và kiểm tra thay đổi nguồn.
+* Lưu tóm tắt document để học viên tái sử dụng thay vì gọi model ở mỗi lượt xem.
+* Sinh bản nháp câu hỏi theo mức độ khó và kiểm tra cấu trúc phản hồi AI.
+* Hoàn thiện upload multipart, cleanup orphan object và retry S3 cleanup an toàn.

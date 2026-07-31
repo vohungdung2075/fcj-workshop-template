@@ -1,126 +1,111 @@
 ---
 title: "Event 2"
-date: 2024-01-01
-weight: 1
+date: 2026-07-11
+weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
-
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# Event Summary Report: “Meetup 11/07/2026”
 
 ### Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+- **Witness the Cloud Architect Competition Finals**: Cheer on the top 2 teams competing through 10 challenging AWS Cloud architecture questions.
+- **Explore Web App Security Automation (AWS Security Agent)**: Learn how Agentic AI powered by Amazon Bedrock automates pentesting, code security reviews, and architecture reviews.
+- **Master SLA & True Monitoring Practices**: Embrace the Monitoring Pyramid framework, distinguishing "Healthy Infrastructure" from "Healthy User Experience".
+- **Conquer the AWS Certified Cloud Practitioner Exam (CLF-C02)**: Understand exam structure, 4 domain weightings, Keyword Mapping strategies, and preparation roadmaps.
 
-### Speakers
+---
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+### Event Agenda & Speakers
+
+- **Opening Activity:** *Cloud Architect Competition Finals* (Intense matchup between top 2 teams answering 10 AWS Cloud scenario questions).
+- **Session 1:** **Thinh Nguyen** *(DevOps/DevSecOps/Cloud Engineer @ Styl Solutions, FCAJ)*
+  - **Topic:** *Securing Your Web Apps With AWS Security Agent*
+- **Session 2:** **Nguyen Huynh Son** *(Infrastructure Support Engineer @ Endava, Ex-SPS, AWS Student Builder Group HUFLIT)*
+  - **Topic:** *SLA and Monitoring - From SLA to Monitoring what really matters*
+- **Session 3:** **Ngo Le Tan Huy** *(Cloud Practitioner Presenter)*
+  - **Topic:** *Inside The Exam: AWS Cloud Practitioner (CLF-C02)*
+
+---
 
 ### Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+#### Opening Activity: Cloud Architect Competition Finals
+- **Format**: The top 2 finalist teams (KLKAT vs Ngu Dai Hiep) competed directly on stage, tackling **10 scenario questions covering AWS Cloud infrastructure** (VPC, IAM, EC2, S3, High Availability, Security).
+- **Results & Atmosphere**: The matchup was highly intense with close scores. The team with faster, accurate responses and higher total points earned the championship title.
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+#### 1. Securing Your Web Apps With AWS Security Agent (Thinh Nguyen - Styl Solutions)
+- **Security Bottleneck**: Manual pentesting takes weeks, costs $5k-$20k per audit, and heavily relies on human pentester availability.
+- **AWS Security Agent (Frontier Agent)**: Powered by Amazon Bedrock, covering full lifecycle from Design Review (Markdown/Terraform), Code Security Review (GitHub/GitLab PR integration with auto-fix patches), to Automated Pentesting (IDOR -> XSS exploit chains with attack graphs).
+- **Pricing & Limitations**: Pay-as-you-go at $5/Task-Hour (significant savings over human pentest teams); limited by MFA/biometric blocks and complex business logic flaws.
 
-#### Transitioning to modern application architecture – Microservices
+#### 2. SLA and Monitoring - From SLA to Monitoring What Really Matters (Nguyen Huynh Son - Endava)
+- **SLA & Risk Management**: SLA (Service Level Agreement) sets service expectations. Monitoring forms a core part of risk management (Identify -> Monitor -> Respond -> Improve).
+- **Core Message**: **"Healthy Infrastructure ≠ Healthy User Experience"**. 100% green infrastructure metrics (CPU/Memory) do not guarantee customer satisfaction. Case study: `/api` returns `200 OK` while `/login` fails due to RDS DB connection errors, dropping login success to 0%.
+- **Monitoring Pyramid & Alerting**: Building a monitoring hierarchy from Cloud Provider → Infrastructure → Application → Business → Customer Experience. Setting automated alert pipelines: Custom Metric → CloudWatch Alarm → SNS Topic → Email/Slack.
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+#### 3. Inside The Exam: AWS Cloud Practitioner CLF-C02 (Ngo Le Tan Huy)
+- **Exam Overview**: Foundational exam with 65 multiple-choice questions (90 mins, score range 100-1000, passing score 700, 3-year validity).
+- **4 Exam Domains**: Domain 1: Cloud Concepts (24%), Domain 2: Security & Compliance (30% - Shared Responsibility Model, IAM), Domain 3: Cloud Technology & Services (34% - Compute, Storage, DB, Network), Domain 4: Billing & Support (12%).
+- **Preparation & Test Strategy**: **Map Keyword Thinking** (linking services to 1-2 core keywords, e.g. SQS = Decouple/Microservices); analyzing incorrect answers during mock tests; elimination technique and identifying trick words ("Not", "Least cost").
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
-
-#### Domain-Driven Design (DDD)
-
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
-
-#### Event-Driven Architecture
-
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
-
-#### Amazon Q Developer
-
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+---
 
 ### Key Takeaways
 
-#### Design Mindset
+#### DevSecOps & AI Security Mindset
+- **Shift-Left Security & Full Lifecycle**: Integrating security early during architecture design (Terraform/Markdown Design Review) and code pull requests (Code Security Review).
+- **Autonomous Reasoning via Agentic AI**: Leveraging Amazon Bedrock to build AI Agents capable of planning pentest tasks and executing multi-step exploit chains (IDOR -> XSS).
+- **Understanding AI Security Limitations**: Recognizing that while AI Agents streamline vulnerability scanning, human expertise remains crucial for complex business logic validation and handling MFA/biometric auth blocks.
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+#### Observability & SLA Strategy
+- **Healthy Infrastructure ≠ Healthy User Experience**: A green dashboard (CPU 18%, healthy ALB hosts) does not equal happy users; monitoring must focus on the actual Customer Journey.
+- **Monitoring Pyramid Model**: Layering observability from Cloud Provider → Infrastructure → Application → Business Metrics → Customer Experience.
+- **Design for Failure Philosophy**: Internalizing Dr. Werner Vogels' principle (*"Everything fails all the time, so plan for failure and nothing fails"*), establishing automated alert pipelines via CloudWatch Alarms & SNS.
 
-#### Technical Architecture
+#### AWS Certification Strategy
+- **Map Keyword Thinking Method**: Associating every AWS service with 1-2 core use-case keywords (e.g., SQS = Decouple/Microservices, S3 = Object Storage, Artifact = Audit Reports).
+- **Analyzing Incorrect Answers**: Maximizing mock test value by dissecting why wrong choices are incorrect rather than simply memorizing correct options.
+- **Elimination Technique & Pitfall Identification**: Eliminating irrelevant/made-up choices to boost accuracy to 50%; carefully highlighting decisive keywords ("Not", "Least cost", "Most scalable").
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+---
 
-#### Modernization Strategy
+### Applying to Work & LearnSphere Project
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+- **Integrate Automated Security Scanning**: Implement DevSecOps practices in the **LearnSphere** repository, incorporating automated linters and security scanners into GitHub Actions to detect vulnerabilities and secret leaks prior to PR merging.
+- **Establish User-Centric Custom Metrics**: Shift from basic CPU/RAM tracking to monitoring actual user experience metrics on LearnSphere (e.g., login success rates, quiz completion rates, and API response latency).
+- **Configure Automated Incident Alerting**: Set up CloudWatch Alarms integrated with Amazon SNS to trigger instant Slack/Email notifications whenever LearnSphere API error rates breach defined thresholds.
+- **Build an AWS Cloud Practitioner Study Plan**: Apply Map Keyword Thinking and hands-on AWS Free Tier practice to prepare for conquering the CLF-C02 certification exam.
+- **Review Architecture against AWS Well-Architected Framework**: Audit the LearnSphere cloud deployment across the 6 pillars (Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, Sustainability).
 
-### Applying to Work
+---
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+### Event Experience & Reflection
 
-### Event Experience
+Attending **Meetup 11/07/2026** was an exciting and technically rich experience, combining the energy of a cloud architecture competition with practical DevSecOps and monitoring insights:
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+#### Learning from the Cloud Architect Competition
+- Opening with the Cloud Architect finals created an electrifying atmosphere. Watching finalist teams (KLKAT vs Ngu Dai Hiep) analyze 10 complex scenario questions reinforced fundamental concepts around VPC Subnets, IAM Roles, and High Availability.
+- Highlighted the value of rapid architectural reasoning and teamwork under time pressure.
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+#### Modern DevSecOps & AI Agent Exploration
+- Impressed by the live demo of AWS Security Agent on Amazon Bedrock. Watching an AI agent analyze architecture docs and execute exploit chains (IDOR -> XSS) showcased the future of automated security.
+- Recognized practical boundaries such as MFA blocks where human expertise remains essential.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+#### Shifting Perspectives on SLA & Monitoring
+- The presentation on SLA and the Monitoring Pyramid addressed a major engineering pain point: "Green infrastructure doesn't mean happy users". The `/login` failure scenario transformed my approach to observability design.
+- Remembered Dr. Werner Vogels' famous quote: *"Everything fails all the time, so plan for failure and nothing fails"*.
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+#### Clear Roadmap for AWS Certification
+- The breakdown of the AWS Cloud Practitioner (CLF-C02) exam and Map Keyword Thinking provided a clear, confident strategy for certification success.
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+#### Event Photos
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+![The intense Cloud Architect Competition Finals stage match at Bitexco Tower (KLKAT vs Ngu Dai Hiep)](/images/events/event-2/event2_stage.jpg)
 
-#### Some event photos
-*Add your event photos here*  
+![Group photo with all community members attending the Meetup on 11/07/2026 at AWS Office](/images/events/event-2/event2_group.jpg)
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+![Check-in at the Meetup event on 11/07/2026 on the 26th Floor of Bitexco Tower](/images/events/event-2/event2_selfie.jpg)
+
+> **Summary:** The meetup fueled my passion for Cloud architecture, offering immense value from the Cloud Architect finals to real-world security, monitoring, and exam strategies.

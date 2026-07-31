@@ -1,22 +1,22 @@
 ---
 title: "Các bài blogs đã đăng"
-date: 2024-01-01
+date: 2026-07-31
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}  
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+Dưới đây là danh sách các bài blog chia sẻ kiến thức chuyên môn đã đăng trên [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj):
 
-Tại đây sẽ là phần liệt kê, giới thiệu các blogs mà các bạn đã đăng trên [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). Ví dụ:
+### [Blog 1 - Tại sao nhóm mình không dùng Amazon Bedrock Knowledge Bases dù đang làm chatbot RAG?](3.1-Blog1/)
+Bài viết phân tích lý do nhóm quyết định tự xây dựng pipeline RAG với FAISS thay vì sử dụng dịch vụ Fully Managed Knowledge Bases for Amazon Bedrock. Bài viết đi sâu so sánh sự đánh đổi giữa việc triển khai nhanh (Fully Managed RAG) và nhu cầu kiểm soát toàn bộ pipeline ingest (OCR với Amazon Textract, tùy biến chunking, metadata và phân quyền multi-tenancy) cho dự án thực tế.
 
-###  [Blog 1 - SESSION POLICIES TRONG AMAZON EKS POD IDENTITY](3.1-Blog1/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+---
 
-###  [Blog 2 - ...](3.2-Blog2/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+### [Blog 2 - [AWS Architecture] Phân Tích Kiến Trúc Hệ Thống Platform Học Tập Tích Hợp AI (LearnSphere)](3.2-Blog2/)
+Bài viết phân tích chi tiết sơ đồ kiến trúc hệ thống backend & frontend cho dự án LearnSphere. Kiến trúc kết hợp giữa Serverless Static Hosting (S3 + CloudFront), Containerized Backend (EC2 + ECR), pipeline CI/CD tự động bằng GitHub Actions, giám sát với CloudWatch và tích hợp các dịch vụ ngoài (OpenAI API, MongoDB Atlas).
 
-###  [Blog 3 - ...](3.3-Blog3/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+---
+
+### [Blog 3 - [AWS Security & Network] Phân Tích Mô Hình Phân Vùng Mạng & Bảo Mật Hạ Tầng Cho AI Learning Platform](3.3-Blog3/)
+Bài viết đi sâu phân tích thiết kế hạ tầng mạng (VPC, Public Subnet, IGW ở Region Singapore), chiến lược tách biệt lưu trữ 2 S3 Buckets (Frontend tĩnh & Dữ liệu AI), kiểm soát luồng giao tiếp Outbound Traffic bảo mật (Parameter Store, Secrets Manager, IP Whitelisting MongoDB Atlas), hệ thống giám sát CloudWatch và lộ trình nâng cấp bảo mật với ALB/WAF.

@@ -1,31 +1,45 @@
 ---
 title: "Workshop"
-date: 2024-01-01
+date: 2026-07-30
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# Deploying LearnSphere on AWS
 
 #### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+This workshop documents the complete journey from local LearnSphere source code to production in the AWS Singapore Region (`ap-southeast-1`). The React/Vite Frontend is delivered through Amazon S3 and CloudFront. The Dockerized Node.js/Express Backend runs in an Auto Scaling Group with two private EC2 instances across two Availability Zones and is exposed through an Application Load Balancer.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+The current CI/CD process uses GitHub OIDC, ECR, Systems Manager Parameter Store, and Auto Scaling Instance Refresh with health validation and image-tag rollback.
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+#### Key outcomes
 
-#### Content
+* Production website: [https://www.learnspherev2.id.vn](https://www.learnspherev2.id.vn).
+* Backend instances run in two private subnets across two Availability Zones.
+* The ALB distributes API requests to two healthy targets.
+* The ASG maintains `min=2`, `desired=2`, and `max=4`.
+* Frontend and media objects are stored in separate private S3 buckets.
+* MongoDB Atlas and Groq are reached through per-AZ NAT Gateways.
+* GitHub Actions uses temporary OIDC credentials instead of long-lived AWS keys.
+* CloudWatch centralizes logs and SNS notifies the administrator.
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+#### Contents
+
+1. [Project overview](5.1-overview/)
+2. [Deployment preparation](5.2-preparation/)
+3. [Architecture and system flows](5.3-architecture/)
+4. [Core AWS infrastructure](5.4-infrastructure/)
+5. [High-availability Backend deployment](5.5-backend-ha/)
+6. [Frontend, CloudFront, and domain deployment](5.6-frontend-domain/)
+7. [CI/CD automation](5.7-cicd/)
+8. [Data, media, and AI](5.8-data-ai/)
+9. [Monitoring and alerting](5.9-monitoring/)
+10. [Testing and results](5.10-testing/)
+11. [Cost analysis](5.11-cost/)
+12. [Resource cleanup](5.12-cleanup/)
+
+#### Conclusion
+
+This workshop completes the journey from LearnSphere source code to a secure, automated, and highly available production environment. The system combines CloudFront, S3, ALB, and an Auto Scaling Group across two Availability Zones; GitHub Actions, GitHub OIDC, and ECR release the Backend without SSH administration or long-lived access keys. The result is an online learning platform that can operate reliably, provide centralized observability, and scale further as user demand grows.

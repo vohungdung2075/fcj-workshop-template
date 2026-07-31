@@ -1,125 +1,111 @@
 ---
 title: "Event 2"
-date: 2024-01-01
-weight: 1
+date: 2026-07-11
+weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+# Bài thu hoạch “Meetup 11/07/2026”
 
 ### Mục Đích Của Sự Kiện
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+- **Tham gia & Cổ vũ Chung kết Cuộc thi Cloud Architect**: Theo dõi màn tranh tài kịch tính giữa 2 đội thi xuất sắc nhất qua 10 câu hỏi thử thách kiến thức chuyên sâu về đám mây AWS.
+- **Khám phá ứng dụng AI trong Bảo mật Web Apps (AWS Security Agent)**: Tìm hiểu cách sử dụng Agentic AI trên nền tảng Amazon Bedrock để tự động hóa Pentest, Code Security Review và Design Review.
+- **Thấu hiểu bản chất của SLA & Monitoring**: Tiếp cận mô hình Monitoring Pyramid, phân biệt giữa "Hạ tầng khỏe (Healthy Infrastructure)" và "Trải nghiệm người dùng tốt (Healthy User Experience)".
+- **Chinh phục chứng chỉ AWS Certified Cloud Practitioner (CLF-C02)**: Nắm vững cấu trúc đề thi, trọng số 4 domains, tư duy Keyword Mapping và chiến lược ôn luyện thi chứng chỉ AWS hiệu quả.
 
-### Danh Sách Diễn Giả
+---
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+### Danh Sách Hoạt Động & Diễn Giả
+
+- **Hoạt động mở đầu:** *Chung kết Cuộc thi Cloud Architect* (Màn đối đầu kịch tính giữa 2 đội thi KLKAT vs Ngũ Đại Hiệp qua 10 câu hỏi kiến thức AWS Cloud).
+- **Phiên 1:** **Thịnh Nguyễn** *(DevOps/DevSecOps/Cloud Engineer @ Styl Solutions, FCAJ)*
+  - **Chủ đề:** *Securing Your Web Apps With AWS Security Agent*
+- **Phiên 2:** **Nguyễn Huỳnh Sơn** *(Infrastructure Support Engineer @ Endava, Ex-SPS, AWS Student Builder Group HUFLIT)*
+  - **Chủ đề:** *SLA and Monitoring - From SLA to Monitoring what really matters*
+- **Phiên 3:** **Ngô Lê Tấn Huy** *(Cloud Practitioner Presenter)*
+  - **Chủ đề:** *Inside The Exam: AWS Cloud Practitioner (CLF-C02)*
+
+---
 
 ### Nội Dung Nổi Bật
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+#### Hoạt động mở đầu: Chung kết Cuộc thi Cloud Architect
+- **Hình thức thi đấu**: 2 đội thi xuất sắc nhất (KLKAT vs Ngũ Đại Hiệp) cùng bước vào vòng chung kết trực tiếp trên sân khấu, tranh tài giải quyết **10 câu hỏi trắc nghiệm & tình huống thực tế về hạ tầng đám mây AWS** (VPC, IAM, EC2, S3, High Availability, Security).
+- **Kết quả & Không khí**: Trận đấu diễn ra vô cùng sôi nổi với những màn rượt đuổi điểm số sát sao. Đội có chiến thuật trả lời nhanh, chính xác và đạt tổng điểm cao hơn đã xuất sắc giành chiến thắng chung cuộc.
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+#### 1. Securing Your Web Apps With AWS Security Agent (Thịnh Nguyễn - Styl Solutions)
+- **Nghẽn bảo mật truyền thống**: Pentest thủ công tốn hàng tuần, chi phí đắt đỏ ($5k - $20k/đợt) và phụ thuộc nhiều vào trình độ con người.
+- **AWS Security Agent (Frontier Agent)**: Tự động hóa nhờ Amazon Bedrock, bao phủ full lifecycle từ Design Review (Markdown/Terraform), Code Security Review (tích hợp GitHub/GitLab PR, auto-fix patch) đến Automated Pentesting (giả lập tấn công thực tế IDOR -> XSS, xuất attack graph).
+- **Chi phí & Giới hạn**: Chi phí $5/Task-Hour (tiết kiệm đáng kể so với team Pentest truyền thống); tuy nhiên bị chặn bởi MFA/Biometrics và chưa tự phát hiện được các lỗi logic nghiệp vụ phức tạp.
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+#### 2. SLA and Monitoring - From SLA to Monitoring What Really Matters (Nguyễn Huỳnh Sơn - Endava)
+- **Khái niệm SLA & Quản trị rủi ro**: SLA (Service Level Agreement) quy định cam kết chất lượng dịch vụ. Giám sát (Monitoring) nằm trong quy trình quản trị rủi ro (Identify -> Monitor -> Respond -> Improve).
+- **Thông điệp cốt lõi**: **"Healthy Infrastructure ≠ Healthy User Experience"**. Giám sát hạ tầng (CPU, Memory, Disk) green 100% không đồng nghĩa người dùng happy. Case study: `/api` trả về `200 OK` nhưng `/login` thất bại do lỗi kết nối RDS DB làm trải nghiệm người dùng tụt về 0%.
+- **Monitoring Pyramid & Alerting**: Xây dựng tháp giám sát từ Cloud Provider → Infrastructure → Application → Business → Customer Experience. Thiết lập alert flow tự động từ Custom Metric → CloudWatch Alarm → SNS Topic → Email/Slack.
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+#### 3. Inside The Exam: AWS Cloud Practitioner CLF-C02 (Ngô Lê Tấn Huy)
+- **Tổng quan kỳ thi**: Bài thi nền tảng gồm 65 câu hỏi (90 phút, thang điểm 100-1000, điểm đạt 700, giá trị 3 năm).
+- **Cấu trúc 4 Domains**: Domain 1: Cloud Concepts (24%), Domain 2: Security & Compliance (30% - Shared Responsibility Model, IAM), Domain 3: Cloud Technology & Services (34% - Compute, Storage, DB, Network), Domain 4: Billing & Support (12%).
+- **Bí kíp ôn luyện & Làm bài**: Phương pháp **Map Keyword Thinking** (gắn service với 1-2 từ khóa cốt lõi, ví dụ SQS = Decouple/Microservices); Phân tích sâu đáp án sai khi làm mock test; Kỹ thuật loại trừ (Elimination) và đọc kỹ từ khóa bẫy ("Not", "Least cost").
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
-
-#### Domain-Driven Design (DDD)
-
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
-
-#### Event-Driven Architecture
-
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
-
-#### Amazon Q Developer
-
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+---
 
 ### Những Gì Học Được
 
-#### Tư Duy Thiết Kế
+#### Tư Duy Bảo Mật & AI Agent (DevSecOps & AI Mindset)
+- **Shift-Left Security & Full Lifecycle**: Tích hợp bảo mật sớm ngay từ khâu thiết kế kiến trúc (Design Review với Terraform/Markdown) và kiểm thử mã nguồn (Code Review trên Pull Request).
+- **Autonomous Reasoning với Agentic AI**: Tận dụng Amazon Bedrock để xây dựng AI Agents có khả năng lập kế hoạch pentest và chủ động giả lập các chuỗi tấn công thực tế (IDOR -> XSS).
+- **Thấu hiểu rào cản của AI Security**: AI Agent hỗ trợ đắc lực trong việc phát hiện lỗ hổng phổ biến nhưng vẫn bị giới hạn bởi bẫy MFA/Biometrics và chưa thay thế được con người trong kiểm thử logic nghiệp vụ phức tạp.
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+#### Tư Duy Giám Sát & Vận Hành Hạ Tầng (Observability & SLA Strategy)
+- **Healthy Infrastructure ≠ Healthy User Experience**: Bảng điều khiển màu xanh (CPU 18%, ALB healthy) không đảm bảo người dùng hài lòng; giám sát phải bắt đầu từ trải nghiệm người dùng thực tế (Customer Journey).
+- **Mô hình Monitoring Pyramid**: Xây dựng hệ thống giám sát phân tầng từ Cloud Provider → Infrastructure → Application → Business Metrics → Customer Experience.
+- **Triết lý Thiết kế Chống Lỗi (Design for Failure)**: Nắm vững tư duy của Dr. Werner Vogels: *"Everything fails all the time, so plan for failure and nothing fails"*, thiết lập luồng cảnh báo tự động qua CloudWatch Alarms & SNS.
 
-#### Kiến Trúc Kỹ Thuật
+#### Chiến Lược Chinh Phục Chứng Chỉ AWS (Certification Strategy)
+- **Phương pháp Map Keyword Thinking**: Khi học từng dịch vụ AWS, luôn gắn liền với 1-2 từ khóa use-case cốt lõi (ví dụ SQS = Decouple/Microservices, S3 = Object Storage, Artifact = Audit Reports).
+- **Kỹ thuật Phân Tích Đáp Án Sai**: Ôn thi hiệu quả bằng cách mổ xẻ nguyên nhân tại sao các phương án còn lại sai thay vì chỉ học thuộc đáp án đúng.
+- **Kỹ thuật Loại Trừ & Nhận Biết Bẫy**: Loại bỏ 2 đáp án phi lý/th bịa đặt để tăng tỷ lệ đúng lên 50%; chú ý các từ khóa bẫy quan trọng như "Not", "Least cost", "Most scalable".
 
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
+---
 
-#### Chiến Lược Hiện Đại Hóa
+### Ứng Dụng Vào Công Việc & Dự Án Learnsphere
 
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
+- **Tích hợp Tự Động Quét Lỗ Hổng Bảo Mật**: Áp dụng quy trình DevSecOps vào repository **LearnSphere**, tích hợp các linter và security scanner vào GitHub Actions để kiểm tra code và phát hiện rò rỉ secrets trước khi merge.
+- **Xây dựng Custom CloudWatch Metrics cho LearnSphere**: Thiết lập giám sát theo hướng Customer Experience — theo dõi tỷ lệ đăng nhập thành công, tỷ lệ nộp quiz hoàn tất và thời gian phản hồi API thay vì chỉ xem RAM/CPU.
+- **Thiết Lập Hệ Thống Cảnh Báo Tự Động**: Cấu hình CloudWatch Alarms gửi thông báo tức thì qua Email/Slack via Amazon SNS khi tỷ lệ lỗi API của LearnSphere vượt ngưỡng cho phép.
+- **Lập Lộ Trình Ôn Thi Chứng Chỉ AWS Cloud Practitioner**: Áp dụng phương pháp Map Keyword Thinking và luyện tập trên môi trường AWS Free Tier để chuẩn bị cho kỳ thi lấy chứng chỉ CLF-C02.
+- **Rà Soát Kiến Trúc Theo AWS Well-Architected Framework**: Đánh giá lại hạ tầng đám mây của dự án LearnSphere theo 6 trụ cột (Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, Sustainability).
 
-### Ứng Dụng Vào Công Việc
+---
 
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
+### Trải Nghiệm Trong Event
 
-### Trải nghiệm trong event
+Tham gia buổi **Meetup 11/07/2026** là một trải nghiệm vừa sôi động vừa giàu giá trị chuyên môn, kết hợp giữa tinh thần thi đấu thể thao điện tử công nghệ và kiến thức kỹ thuật Cloud/DevSecOps thực chiến. Một số trải nghiệm nổi bật:
 
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
+#### Học hỏi từ cuộc thi thực chiến Cloud Architect
+- Mở đầu sự kiện bằng trận chung kết kịch tính giữa 2 đội thi Cloud Architect (KLKAT vs Ngũ Đại Hiệp). Việc theo dõi các đội thi phân tích và nhanh tay trả lời 10 câu hỏi tình huống phức tạp giúp tôi củng cố lại rất nhiều kiến thức nền tảng về VPC Subnets, IAM Roles và High Availability.
+- Nhận ra tầm quan trọng của phản xạ tư duy kiến trúc và kỹ năng làm việc nhóm dưới áp lực thời gian.
 
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
+#### Trải nghiệm công nghệ DevSecOps & AI Agent hiện đại
+- Ấn tượng mạnh mẽ với demo AWS Security Agent chạy trên nền Amazon Bedrock. Việc công cụ AI có thể tự động đọc file Markdown/Terraform để review kiến trúc và thực hiện exploit thử nghiệm (IDOR -> XSS) mở ra góc nhìn hoàn toàn mới về tương lai của kiểm thử bảo mật.
+- Hiểu được các rào cản thực tế của AI Security như bẫy MFA hay các lỗi logic nghiệp vụ mà con người vẫn đóng vai trò quyết định.
 
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
+#### Thay đổi góc nhìn về SLA & Monitoring
+- Bài chia sẻ về SLA và Monitoring Pyramid thực sự chạm đúng nỗi đau của người làm hạ tầng: "Hệ thống green không có nghĩa người dùng vui". Ví dụ minh họa về API trả về HTTP 200 nhưng trang Login sập do kết nối Database đã giúp tôi thay đổi hoàn toàn tư duy thiết kế hệ thống giám sát.
+- Học được câu nói nổi tiếng của Dr. Werner Vogels: *"Everything fails all the time, so plan for failure and nothing fails"*.
 
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
-
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
+#### Định hướng con đường chinh phục chứng chỉ AWS
+- Phần hướng dẫn chi tiết về cấu trúc đề thi AWS Cloud Practitioner (CLF-C02) cùng bíp kíp "Map Keyword Thinking" đã tháo gỡ tâm lý e ngại thi chứng chỉ. Tôi hiểu rằng việc làm bài test không chỉ để lấy bằng mà là quá trình hệ thống hóa bức tranh toàn cảnh về Cloud AWS.
 
 #### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+
+![Trận Chung kết Cuộc thi Cloud Architect đầy kịch tính trên sân khấu Bitexco (KLKAT vs Ngũ Đại Hiệp)](/images/events/event-2/event2_stage.jpg)
+
+![Chụp ảnh kỷ niệm cùng toàn thể cộng đồng tham dự Meetup 11/07/2026 tại văn phòng AWS](/images/events/event-2/event2_group.jpg)
+
+![Check-in tham gia buổi Meetup 11/07/2026 tại tầng 26 tòa nhà Bitexco](/images/events/event-2/event2_selfie.jpg)
+
+> **Tổng kết:** Sự kiện đã tiếp thêm ngọn lửa đam mê công nghệ, từ tinh thần thi đấu nhiệt huyết của cuộc thi Cloud Architect đến những kiến thức bảo mật, monitoring và thi chứng chỉ vô cùng thực tế.

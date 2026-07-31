@@ -1,31 +1,76 @@
 ---
 title: "Blog 2"
-date: 2024-01-01
-weight: 1
+date: 2026-07-30
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+# [AWS Architecture] System Architecture Analysis of AI Learning Platform (LearnSphere)
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+Hello AWS Study Group community!
 
-Key points to know:
+Today, I would like to share a detailed system architecture analysis of the backend & frontend for **LearnSphere / AI Learning Platform**, an AI-integrated learning platform our team recently designed.
 
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
+Unlike purely theoretical posts, this architecture combines Serverless Static Hosting, Containerized Backend on EC2, automated CI/CD pipelines, and managed external AI/Database services.
 
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
+---
 
-...Image...
+### 1. System Architecture Overview
 
-...Link...
+The system is deployed on AWS Cloud in the Singapore Region (`ap-southeast-1`), ensuring low latency for Southeast Asian users. The architecture consists of 4 main pillars:
 
-...Guide...
+- **Frontend Hosting**: Amazon S3 + Amazon CloudFront (CDN).
+- **Backend Services**: Amazon EC2 (inside VPC / Public Subnet) + Amazon ECR.
+- **CI/CD Pipeline & Monitoring**: GitHub Actions + Amazon CloudWatch.
+- **External Services Integration**: OpenAI API + MongoDB Atlas + S3 Media Bucket.
+
+![LearnSphere AWS System Architecture Diagram](/images/LEARNSHPHERE.png)
+
+---
+
+### 2. Component Analysis & Operational Workflows
+
+#### A. Frontend Layer
+- **Storage**: Static frontend assets (React / Vite / TypeScript) are hosted in an S3 Bucket: `learnsphere-fe-static`.
+- **Content Delivery Network (CDN)**: Amazon CloudFront sits in front of the S3 bucket.
+- **Access Flow**: When users visit the site, requests pass through CloudFront to retrieve static content cached at Edge Locations, optimizing load speeds and reducing S3 egress costs.
+
+#### B. Backend Layer
+- **VPC & Subnet**: A VPC configured with Availability Zone `ap-southeast-1a` and a Public Subnet.
+- **Compute**: Node.js/Express.js backend runs on an Amazon EC2 Instance inside the Public Subnet, connected to the internet via an Internet Gateway.
+- **Container Registry**: Backend Docker images are centrally stored on **Amazon ECR**. Upon deployment, the EC2 instance pulls updated container images from ECR.
+
+#### C. CI/CD & Monitoring
+- **GitHub Actions**: Serves as the CI/CD orchestration hub:
+  - Automatically builds & pushes Docker Images to ECR on code pushes.
+  - Triggers automated deployment to the EC2 Instance.
+  - Syncs static assets to S3 buckets.
+- **Amazon CloudWatch**: Collects application logs and system metrics for monitoring, alerting, and error tracing.
+
+#### D. Data & External Integration
+The EC2 Backend handles core application logic and interacts directly with auxiliary services:
+- **Storage Bucket (`ai-learning-platform-vhd`)**: Dedicated S3 Bucket for storing course media (videos, PDFs, Docx) and AI platform files.
+- **OpenAI API**: Backend sends API requests to OpenAI for intelligent features (AI Tutor, quiz generation, course content analysis).
+- **MongoDB Atlas**: Fully managed NoSQL database hosted externally, connected directly from the EC2 backend for user and course data persistence.
+
+---
+
+### 3. Key Benefits & Strengths
+
+- **Decoupled Architecture**: Serving the frontend through CloudFront/S3 delivers fast page loads independent of backend server health.
+- **Automated CI/CD Pipeline**: GitHub Actions + ECR containerization guarantees consistent Dev/Staging/Prod environments and 100% automated deployment.
+- **Flexible AI & Managed Integration**: Harnessing OpenAI for intelligent AI features and MongoDB Atlas for managed data persistence avoids database cluster maintenance overhead on EC2.
+
+---
+
+### 4. Future Architecture Optimizations
+
+Our team is considering several enhancements for future iterations:
+- **Enhanced Security**: Moving EC2 Instances into Private Subnets behind an Application Load Balancer (ALB) in the Public Subnet.
+- **Scalability**: Replacing single EC2 instances with Auto Scaling Groups or AWS ECS/EKS as user traffic scales up.
+- **Database Caching**: Integrating Amazon ElastiCache (Redis) to cache OpenAI and MongoDB responses, lowering API costs and response latency.
+
+---
+
+Feel free to leave your thoughts, questions, or feedback on our LearnSphere architecture design!

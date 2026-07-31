@@ -1,22 +1,22 @@
 ---
 title: "Blogs Posted"
-date: 2024-01-01
+date: 2026-07-31
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+Below is the list of technical blog posts published on the [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj):
 
-This section will list and introduce the blogs you have posted to [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). For example:
+### [Blog 1 - Why Our Team Didn't Use Amazon Bedrock Knowledge Bases for Our RAG Chatbot](3.1-Blog1/)
+This article analyzes why our team chose to build a custom RAG pipeline with FAISS instead of adopting the fully managed Knowledge Bases for Amazon Bedrock. It evaluates the trade-offs between rapid managed deployments and total ingestion pipeline control (custom OCR via Amazon Textract, tailored chunking, metadata management, and multi-tenant data isolation).
 
-###  [Blog 1 - SESSION POLICIES IN AMAZON EKS POD IDENTITY](3.1-Blog1/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+---
 
-###  [Blog 2 - ...](3.2-Blog2/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+### [Blog 2 - [AWS Architecture] System Architecture Analysis of AI Learning Platform (LearnSphere)](3.2-Blog2/)
+A detailed analysis of the frontend and backend cloud architecture for the LearnSphere AI platform. The architecture combines Serverless Static Hosting (S3 + CloudFront), Containerized Backend (EC2 + ECR), automated CI/CD via GitHub Actions, CloudWatch observability, and managed integrations (OpenAI API, MongoDB Atlas).
 
-###  [Blog 3 - ...](3.3-Blog3/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+---
+
+### [Blog 3 - [AWS Security & Network] Network Segmentation & Infrastructure Security Analysis for AI Learning Platform](3.3-Blog3/)
+An in-depth analysis of cloud network architecture (VPC, Public Subnets, IGW in Singapore Region), S3 storage isolation strategies (Static Frontend vs. AI Media Data buckets), secure outbound traffic management (Parameter Store, Secrets Manager, MongoDB Atlas IP Whitelisting), CloudWatch observability, and future security upgrade roadmaps (ALB/WAF).

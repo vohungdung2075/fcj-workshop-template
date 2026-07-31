@@ -1,59 +1,48 @@
 ---
 title: "Worklog Tuần 4"
-date: 2024-01-01
-weight: 1
+date: 2026-06-22
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu tuần 4
 
-### Mục tiêu tuần 4:
+* Hiểu cách theo dõi tài nguyên, thu thập log và tạo cảnh báo với Amazon CloudWatch.
+* Biết cách sử dụng Amazon SNS để gửi thông báo khi hệ thống xảy ra sự cố.
+* Tìm hiểu Amazon Bedrock và cách tích hợp mô hình nền tảng vào ứng dụng.
+* Nắm được quy trình tự động kiểm thử, đóng gói và triển khai mã nguồn bằng GitHub Actions.
+* Tổng hợp các dịch vụ đã học để thiết kế kiến trúc cho một ứng dụng web trên AWS.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc thực hiện trong tuần
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| **2** | - Tìm hiểu tổng quan về **Amazon CloudWatch** và vai trò của dịch vụ trong giám sát hệ thống.<br>- Nghiên cứu các thành phần chính:<br>&emsp;+ Metrics<br>&emsp;+ Logs và Log Groups<br>&emsp;+ Dashboards<br>&emsp;+ Alarms<br>- Thực hành theo dõi các metric của EC2 như CPUUtilization, NetworkIn và NetworkOut.<br>- Tạo CloudWatch Dashboard để tổng hợp các thông tin giám sát cơ bản. | 22/06/2026 | 22/06/2026 | https://000008.awsstudygroup.com/ |
+| **3** | - Tìm hiểu **Amazon Simple Notification Service (SNS)** và mô hình publish/subscribe.<br>- Nghiên cứu các thành phần:<br>&emsp;+ Topic<br>&emsp;+ Publisher<br>&emsp;+ Subscription<br>&emsp;+ Endpoint<br>- Thực hành tạo SNS topic, đăng ký nhận thông báo qua email và xác nhận subscription.<br>- Kết nối CloudWatch Alarm với SNS để gửi cảnh báo khi metric vượt ngưỡng cấu hình. | 23/06/2026 | 23/06/2026 | https://000077.awsstudygroup.com/|
+| **4** | - Tìm hiểu tổng quan về **Amazon Bedrock** và khái niệm Foundation Model.<br>- Khám phá Model Catalog, Bedrock Playground và các hình thức inference.<br>- Tìm hiểu cách ứng dụng gửi prompt và nhận phản hồi từ mô hình thông qua API.<br>- Nghiên cứu quyền IAM cần thiết để gọi model, cách lựa chọn Region, model ID và inference profile.<br>- Tìm hiểu ảnh hưởng của token, quota và throttling đến chi phí và khả năng hoạt động của tính năng AI. | 24/06/2026 | 24/06/2026 | https://000056.awsstudygroup.com/ |
+| **5** | - Tìm hiểu quy trình **Continuous Integration và Continuous Deployment (CI/CD)** trong phát triển phần mềm.<br>- Làm quen với GitHub Actions và cấu trúc workflow YAML:<br>&emsp;+ Trigger<br>&emsp;+ Job<br>&emsp;+ Step<br>&emsp;+ Secret và Variable<br>- Tìm hiểu quy trình build, kiểm thử và đóng gói ứng dụng thành Docker image.<br>- Nghiên cứu cách GitHub Actions xác thực với AWS bằng OpenID Connect (OIDC) thay cho việc lưu Access Key dài hạn. | 25/06/2026 | 25/06/2026 | https://000051.awsstudygroup.com/ |
+| **6** | - Tổng hợp các dịch vụ AWS đã học trong bốn tuần đầu.<br>- Thiết kế kiến trúc mẫu cho một ứng dụng web gồm:<br>&emsp;+ Amazon S3 và CloudFront phân phối Frontend<br>&emsp;+ Amazon EC2 chạy Backend bằng Docker<br>&emsp;+ Amazon ECR lưu trữ Docker image<br>&emsp;+ Amazon CloudWatch và SNS giám sát, cảnh báo<br>&emsp;+ IAM và VPC kiểm soát quyền truy cập, kết nối mạng<br>- Xem xét kiến trúc theo các khía cạnh bảo mật, hiệu năng, độ tin cậy và chi phí.<br>- Chuẩn bị kế hoạch chuyển sang giai đoạn phát triển dự án LearnSphere. | 26/06/2026 | 26/06/2026 | https://cloudjourney.awsstudygroup.com/ |
 
+### Kết quả đạt được tuần 4
 
-### Kết quả đạt được tuần 4:
+* Hiểu các thành phần giám sát chính của Amazon CloudWatch:
+  * Metrics
+  * Logs
+  * Dashboards
+  * Alarms
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Theo dõi được các metric cơ bản của EC2 và tạo CloudWatch Dashboard.
+* Tạo được SNS topic, email subscription và kết nối SNS với CloudWatch Alarm.
+* Hiểu vai trò của Amazon Bedrock trong việc tích hợp AI tạo sinh vào ứng dụng.
+* Nắm được các yếu tố cần thiết khi gọi model:
+  * Region
+  * Model ID
+  * Inference Profile
+  * IAM Permission
+  * Token và Quota
+* Hiểu cấu trúc cơ bản của GitHub Actions workflow gồm Trigger, Job và Step.
+* Nắm được quy trình build, kiểm thử, tạo Docker image và triển khai ứng dụng tự động.
+* Hiểu lợi ích của việc sử dụng OIDC để GitHub Actions truy cập AWS mà không lưu Access Key dài hạn.
+* Hoàn thành sơ đồ kiến trúc mẫu kết hợp S3, CloudFront, EC2, ECR, CloudWatch, SNS, IAM và VPC.
+* Hoàn thành giai đoạn học tập AWS nền tảng và chuẩn bị chuyển sang phát triển dự án LearnSphere.

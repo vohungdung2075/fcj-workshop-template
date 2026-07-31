@@ -1,33 +1,45 @@
 ---
 title: "Workshop"
-date: 2024-01-01
+date: 2026-07-30
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+# Triển khai LearnSphere trên AWS
 
 #### Tổng quan
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+Workshop trình bày toàn bộ quá trình đưa **LearnSphere** từ mã nguồn local lên môi trường production tại AWS Region Singapore (`ap-southeast-1`). Frontend React/Vite được phân phối bằng Amazon S3 và CloudFront; Backend Node.js/Express được đóng gói Docker, triển khai trên Auto Scaling Group gồm hai EC2 private thuộc hai Availability Zone và phục vụ qua Application Load Balancer.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+Quy trình CI/CD hiện tại dùng GitHub OIDC, ECR, Systems Manager Parameter Store và Auto Scaling Instance Refresh có kiểm tra sức khỏe và khôi phục image tag khi phát hành thất bại.
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+#### Kết quả chính
+
+* Website production: [https://www.learnspherev2.id.vn](https://www.learnspherev2.id.vn).
+* Backend hoạt động trong hai private subnet thuộc hai Availability Zone.
+* ALB phân phối request API đến hai target khỏe mạnh.
+* ASG duy trì `min=2`, `desired=2`, `max=4`.
+* Frontend và media được lưu trong hai S3 bucket private riêng biệt.
+* MongoDB Atlas và Groq được truy cập qua NAT Gateway theo từng AZ.
+* GitHub Actions triển khai bằng credential tạm thời từ OIDC, không dùng AWS access key dài hạn.
+* CloudWatch tập trung log; SNS gửi cảnh báo tới quản trị viên.
 
 #### Nội dung
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+1. [Tổng quan dự án](5.1-overview/)
+2. [Chuẩn bị triển khai](5.2-preparation/)
+3. [Kiến trúc và luồng hệ thống](5.3-architecture/)
+4. [Xây dựng hạ tầng AWS cốt lõi](5.4-infrastructure/)
+5. [Triển khai Backend High Availability](5.5-backend-ha/)
+6. [Triển khai Frontend, CloudFront và tên miền](5.6-frontend-domain/)
+7. [Tự động hóa CI/CD](5.7-cicd/)
+8. [Dữ liệu, media và AI](5.8-data-ai/)
+9. [Giám sát và cảnh báo](5.9-monitoring/)
+10. [Kiểm thử và kết quả](5.10-testing/)
+11. [Phân tích chi phí](5.11-cost/)
+12. [Dọn dẹp tài nguyên](5.12-cleanup/)
+
+#### Kết luận
+
+Workshop hoàn thiện quy trình triển khai LearnSphere từ mã nguồn lên môi trường production theo hướng bảo mật, tự động hóa và sẵn sàng cao. Hệ thống kết hợp CloudFront, S3, ALB và Auto Scaling Group trên hai Availability Zone; Backend được phát hành bằng GitHub Actions, GitHub OIDC và ECR mà không cần quản lý SSH hoặc Access Key dài hạn. Kết quả đạt được là một nền tảng học tập trực tuyến có thể vận hành ổn định, theo dõi tập trung và tiếp tục mở rộng khi số lượng người dùng tăng.
