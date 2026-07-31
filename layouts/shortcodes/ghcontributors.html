@@ -21,12 +21,11 @@
 <div class="ghContributors">
   {{ $url := .Get 0 }}
   {{ $contributors := slice }}
-  {{ with try (resources.GetRemote $url) }}
-    {{ with .Err }}
-      {{ warnf "Unable to load GitHub contributors from %q: %s" $url . }}
-    {{ else with .Value }}
-      {{ $contributors = .Content | transform.Unmarshal }}
-    {{ end }}
+  {{ $resource := resources.GetRemote $url }}
+  {{ if $resource }}
+    {{ $contributors = $resource.Content | transform.Unmarshal }}
+  {{ else }}
+    {{ warnf "Unable to load GitHub contributors from %q" $url }}
   {{ end }}
   {{ range $contributors }}
   <div>
