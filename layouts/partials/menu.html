@@ -110,7 +110,7 @@ $currentNode.File }}{{ $currentFileUniqueID = .UniqueID }}{{ end }} {{with
 .sect}} {{if and .IsSection (or (not .Params.hidden) $.showhidden)}} {{safeHTML
 .Params.head}}
 <li
-  data-nav-id="{{.RelPermalink}}"
+  data-nav-id="{{.Permalink}}"
   title="{{.Title}}"
   class="dd-item 
         {{if .IsAncestor $currentNode }}parent{{end}}
@@ -142,7 +142,7 @@ $currentNode.File }}{{ $currentFileUniqueID = .UniqueID }}{{ end }} {{with
 </li>
 {{else}} {{ if not .Params.Hidden }}
 <li
-  data-nav-id="{{.RelPermalink}}"
+  data-nav-id="{{.Permalink}}"
   title="{{.Title}}"
   class="dd-item {{if eq .File.UniqueID $currentFileUniqueID}}active{{end}}"
 >
