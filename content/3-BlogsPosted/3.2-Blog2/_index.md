@@ -8,11 +8,7 @@ pre: " <b> 3.2. </b> "
 
 # [AWS Architecture] System Architecture Analysis of AI Learning Platform (LearnSphere)
 
-Hello AWS Study Group community!
-
-Today, I would like to share a detailed system architecture analysis of the backend & frontend for **LearnSphere / AI Learning Platform**, an AI-integrated learning platform our team recently designed.
-
-Unlike purely theoretical posts, this architecture combines Serverless Static Hosting, Containerized Backend on EC2, automated CI/CD pipelines, and managed external AI/Database services.
+A detailed system architecture analysis of the backend and frontend systems for **LearnSphere (AI Learning Platform)**. This architecture combines Serverless Static Hosting, Containerized Backend on EC2, automated CI/CD pipelines, and integrated AI/Database managed services.
 
 ---
 
@@ -66,11 +62,16 @@ The EC2 Backend handles core application logic and interacts directly with auxil
 
 ### 4. Future Architecture Optimizations
 
-Our team is considering several enhancements for future iterations:
+Planned enhancements for future iterations:
 - **Enhanced Security**: Moving EC2 Instances into Private Subnets behind an Application Load Balancer (ALB) in the Public Subnet.
 - **Scalability**: Replacing single EC2 instances with Auto Scaling Groups or AWS ECS/EKS as user traffic scales up.
 - **Database Caching**: Integrating Amazon ElastiCache (Redis) to cache OpenAI and MongoDB responses, lowering API costs and response latency.
 
 ---
 
-Feel free to leave your thoughts, questions, or feedback on our LearnSphere architecture design!
+### REFERENCE LINKS & ORIGINAL POST
+
+- **AWS Study Group Facebook Post**:  
+  [https://www.facebook.com/groups/awsstudygroupfcj/permalink/2222081271890166/](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2222081271890166/)
+
+![Original Post Screenshot on AWS Study Group](/images/blog2-facebook-post.png)

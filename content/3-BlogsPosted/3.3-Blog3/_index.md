@@ -8,11 +8,7 @@ pre: " <b> 3.3. </b> "
 
 # [AWS Security & Network] Network Segmentation & Infrastructure Security Analysis for AI Learning Platform
 
-Hello AWS Study Group community!
-
-Today, I would like to share a detailed analysis of the **Network Architecture** and **Infrastructure Security Strategy** on AWS for the **LearnSphere** project.
-
-A system serving static frontend users, processing backend application logic on EC2, and communicating with external APIs (OpenAI, MongoDB Atlas) requires crystal-clear security boundaries.
+An in-depth analysis of the **Network Architecture** and **Infrastructure Security Strategy** on AWS for the **LearnSphere** project. A system serving static frontend users, processing backend application logic on EC2, and communicating with external APIs (OpenAI, MongoDB Atlas) requires crystal-clear security boundaries.
 
 ![LearnSphere AWS Network Architecture & Security Segmentation Diagram](/images/LEARNSHPHERE.png)
 
@@ -64,4 +60,9 @@ In future iterations, our team plans to enhance security further:
 
 ---
 
-We welcome your feedback and suggestions on our S3 bucket isolation strategy and EC2 Security Group configuration!
+### REFERENCE LINKS & ORIGINAL POST
+
+- **AWS Study Group Facebook Post**:  
+  [https://www.facebook.com/groups/awsstudygroupfcj/permalink/2225782871520006](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2225782871520006)
+
+![Original Post Screenshot on AWS Study Group](/images/blog3-facebook-post.png)

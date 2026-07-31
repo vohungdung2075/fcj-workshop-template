@@ -48,6 +48,19 @@ Response and token usage    → MongoDB Atlas
 
 Video binaries are never sent to the LLM. AI uses extracted document text and bounded lesson context to reduce latency, cost, and context overflow.
 
+#### Future Roadmap & Architectural Evolution
+
+To transition LearnSphere into a fully **AWS Native** platform while optimizing overall performance and security, our team plans to upgrade two core components in future releases:
+
+1. **Database Migration: From MongoDB Atlas to Amazon DynamoDB (AWS Native NoSQL)**
+   - **Rationale**: Eliminate cross-cloud network round-trips outside AWS (reducing latency), leveraging AWS's Fully Managed NoSQL service with seamless auto-scaling and high availability.
+   - **Benefits**: Deep integration with **AWS IAM Policies**, **AWS KMS (Encryption at rest)**, **CloudWatch Metrics**, and **VPC Gateway Endpoints** (free internal access bypassing the internet).
+   - **Migration Approach**: Utilize the **`Dynamoose`** ODM library to migrate Mongoose Schemas (`User`, `Course`, `Lesson`, `QuizAttempt`...) to DynamoDB Tables rapidly without heavy refactoring of backend controller logic.
+
+2. **AI Engine Migration: From Groq API to Amazon Bedrock (AWS Fully Managed Generative AI)**
+   - **Rationale**: Bring all GenAI processing natively into the AWS ecosystem, adhering strictly to enterprise data privacy standards without exposing data to third-party endpoints.
+   - **Benefits**: Access state-of-the-art Foundation Models (Anthropic Claude 3.5 Sonnet, Amazon Titan, Llama 3) via a single unified API; natively leverage **Amazon Bedrock Guardrails** (content moderation), **Bedrock Knowledge Bases** (managed RAG), and **Bedrock Agents** for advanced interactive tutoring.
+
 #### Completion criteria
 
 Section 5.8 is complete when users can upload and download learning files through presigned URLs, large videos complete multipart transfer, the backend reads PDF/DOCX/scanned PDF content, tutors generate document-based summaries and quizzes, students chat within lesson context, and model/token usage is persisted.

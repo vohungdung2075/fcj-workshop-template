@@ -6,17 +6,12 @@ chapter: false
 pre: " <b> 8. </b> "
 ---
 
-# References and Demo resources
+Consolidated list of source code repositories, live production endpoints, and official technical references for the **LearnSphere** project:
 
-This section consolidates the links used to verify the product, inspect the source code, review the deployment process, and consult technical documentation. Demo content is separated from the Workshop so that Section 5 remains focused on the system implementation and deployment procedure.
-
-#### Product and source code
-
-| Resource | Link | Purpose |
-| --- | --- | --- |
-| Production website | [https://www.learnspherev2.id.vn](https://www.learnspherev2.id.vn) | Access the running LearnSphere application over HTTPS |
-| GitHub repository | [https://github.com/HoiaeKHMT/LearnSphere](https://github.com/HoiaeKHMT/LearnSphere) | Review the Frontend, Backend, Dockerfile, and GitHub Actions workflow |
-| CloudFront endpoint | [https://dzr6s0675pe82.cloudfront.net](https://dzr6s0675pe82.cloudfront.net) | Default CloudFront distribution endpoint |
-| Demo video | **Add a Google Drive or YouTube link before submission** | Demonstrate application workflows and production infrastructure |
-
-
+| Resource | Link (URL) | Purpose / Notes |
+| :--- | :--- | :--- |
+| **Production Website** | [https://www.learnspherev2.id.vn](https://www.learnspherev2.id.vn) | Access official LearnSphere application interface (HTTPS TLS/SSL) |
+| **Project Demo Video** | [https://youtu.be/1WHzmj1K668](https://youtu.be/1WHzmj1K668?si=jqqYl7BOTNYEli9H) | Demo video showcasing application workflows and AWS production infrastructure |
+| **CloudFront CDN** | [https://dzr6s0675pe82.cloudfront.net](https://dzr6s0675pe82.cloudfront.net) | CloudFront distribution endpoint serving S3 static assets |
+| **GitHub Repository** | [https://github.com/HoiaeKHMT/LearnSphere](https://github.com/HoiaeKHMT/LearnSphere) | Frontend, Backend source code, Dockerfile & GitHub Actions Workflow |
+| **Architecture Diagram** | [View Architecture Diagram](/images/LEARNSHPHERE.png) | High Availability Multi-AZ AWS system architecture blueprint |

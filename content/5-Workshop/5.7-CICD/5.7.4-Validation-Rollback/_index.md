@@ -45,13 +45,12 @@ After a successful run, verify:
 | S3 publish | Success |
 | CloudFront invalidation | Completed |
 
-#### Existing evidence
+#### Deployment evidence
 
 ![Both LearnSphere deployment jobs completed in GitHub Actions](/images/learnsphere-github-actions-overview.png)
 
 *Figure 5.45. The production workflow completed the backend and frontend jobs in sequence. Both green jobs provide aggregate evidence, but health checks and AWS resource state are still required.*
 
-#### Instance Refresh evidence
 
 ![Successful Instance Refresh history for the backend ASG](/images/learnsphere-asg-instance-refresh-history.png)
 

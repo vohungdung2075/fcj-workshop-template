@@ -8,11 +8,7 @@ pre: " <b> 3.3. </b> "
 
 # [AWS Security & Network] Phân Tích Mô Hình Phân Vùng Mạng & Bảo Mật Hạ Tầng Cho AI Learning Platform
 
-Chào mọi người trong **AWS Study Group**,
-
-Hôm nay mình xin chia sẻ bài viết phân tích chi tiết về Thiết kế hạ tầng mạng (Networking) và Chiến lược phân vùng bảo mật (Security Structure) trên AWS cho dự án **LearnSphere**.
-
-Một hệ thống vừa phục vụ người dùng tĩnh (Frontend), vừa xử lý ứng dụng (EC2 Backend), lại vừa giao tiếp với các API bên ngoài (OpenAI, MongoDB Atlas) đòi hỏi việc phân định ranh giới bảo mật cực kỳ rõ ràng.
+Bài viết phân tích chi tiết về Thiết kế hạ tầng mạng (Networking) và Chiến lược phân vùng bảo mật (Security Structure) trên AWS cho dự án **LearnSphere**. Một hệ thống vừa phục vụ người dùng tĩnh (Frontend), vừa xử lý ứng dụng (EC2 Backend), lại vừa giao tiếp với các API bên ngoài (OpenAI, MongoDB Atlas) đòi hỏi việc phân định ranh giới bảo mật cực kỳ rõ ràng.
 
 ![Sơ đồ kiến trúc hạ tầng mạng và phân vùng bảo mật LearnSphere trên AWS](/images/LEARNSHPHERE.png)
 
@@ -64,4 +60,9 @@ Trong các phiên bản phát triển tiếp theo, nhóm đang lên kế hoạch
 
 ---
 
-Mọi người có góp ý gì về cách phân vùng S3 bucket cũng như thiết kế Security Group cho EC2 trong sơ đồ này không? Rất mong nhận được thảo luận từ mọi người trong group!
+### LINK BÀI VIẾT THAM KHẢO & BÀI ĐĂNG GỐC
+
+- **Bài đăng thực tế trên Facebook Group AWS Study Group**:  
+  [https://www.facebook.com/groups/awsstudygroupfcj/permalink/2225782871520006](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2225782871520006)
+
+![Ảnh bài đăng thực tế Blog 3 trên AWS Study Group](/images/blog3-facebook-post.png)

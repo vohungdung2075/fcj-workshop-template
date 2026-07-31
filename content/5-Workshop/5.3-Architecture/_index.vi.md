@@ -25,9 +25,10 @@ Kiến trúc được triển khai tại Region Singapore (`ap-southeast-1`). Ch
 ![Kiến trúc production LearnSphere Multi-AZ](/images/LEARNSHPHERE.png)
 
 *Hình 5.6. Kiến trúc As-Built của LearnSphere sau khi nâng cấp Backend theo mô hình High Availability Multi-AZ.*
+> **Định hướng phát triển kiến trúc tương lai (AWS Native Roadmap):**  
+> Trong các phiên bản tiếp theo, nhóm định hướng chuyển đổi **MongoDB Atlas sang Amazon DynamoDB** (sử dụng thư viện ODM `Dynamoose` giúp kết nối nội bộ qua VPC Gateway Endpoints) và chuyển **Groq API sang Amazon Bedrock** (truy cập trực tiếp Claude 3.5, tích hợp sẵn Bedrock Guardrails & Knowledge Bases cho RAG). Đồng thời, tích hợp **AWS WAF** ở vòng ngoài và sử dụng VPC Interface Endpoints để tối ưu bảo mật và chi phí hạ tầng.
 
 Sơ đồ thể hiện hai nhóm luồng:
-
 * **Đường liền** biểu diễn traffic runtime và luồng dữ liệu của người dùng, Backend hoặc dịch vụ giám sát.
 * **Đường nét đứt** biểu diễn luồng quản trị, cấp quyền, cấu hình và triển khai từ GitHub Actions.
 

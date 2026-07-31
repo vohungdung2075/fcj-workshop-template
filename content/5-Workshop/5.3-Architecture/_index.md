@@ -25,6 +25,9 @@ The architecture runs in the Singapore Region (`ap-southeast-1`). The CloudFront
 ![LearnSphere Multi-AZ production architecture](/images/LEARNSHPHERE.png)
 
 *Figure 5.6. LearnSphere As-Built architecture after the Multi-AZ high-availability Backend upgrade.*
+> **Future Architecture Evolution (AWS Native Roadmap):**  
+> In future iterations, our team plans to migrate **MongoDB Atlas to Amazon DynamoDB** (utilizing the `Dynamoose` ODM library connected internally via VPC Gateway Endpoints) and migrate **Groq API to Amazon Bedrock** (direct Claude 3.5 access with built-in Bedrock Guardrails & Knowledge Bases for RAG). Additionally, integrating **AWS WAF** at the edge and employing VPC Interface Endpoints will optimize security and infrastructure costs.
+
 
 The diagram uses two types of connections:
 

@@ -46,13 +46,12 @@ After deployment:
 4. Sign in and call an authenticated API.
 5. Confirm that presigned uploads still satisfy S3 CORS.
 
-#### Existing evidence
+#### Deployment evidence
 
 ![LearnSphere running on the production domain](/images/learnsphere-production-homepage.png)
 
 *Figure 5.36. LearnSphere is delivered over HTTPS in production. The application UI confirms that CloudFront serves the frontend from S3 and that users can access it through a browser.*
 
-#### Additional evidence to add
 
 ![Completed CloudFront invalidations](/images/learnsphere-cloudfront-invalidations.png)
 

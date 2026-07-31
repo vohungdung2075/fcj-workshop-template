@@ -8,11 +8,7 @@ pre: " <b> 3.2. </b> "
 
 # [AWS Architecture] Phân Tích Kiến Trúc Hệ Thống Platform Học Tập Tích Hợp AI (LearnSphere)
 
-Chào mọi người trong cộng đồng **AWS Study Group**,
-
-Hôm nay mình xin chia sẻ bài viết phân tích chi tiết sơ đồ kiến trúc hệ thống backend & frontend cho dự án **LearnSphere / AI Learning Platform** mà nhóm mình vừa thiết kế.
-
-Khác với các bài viết lý thuyết thông thường, kiến trúc này kết hợp giữa Serverless Static Hosting, Containerized Backend trên EC2, pipeline CI/CD tự động và các dịch vụ AI/Database external.
+Bài viết phân tích chi tiết sơ đồ kiến trúc hệ thống backend & frontend cho dự án **LearnSphere / AI Learning Platform**. Kiến trúc này kết hợp giữa Serverless Static Hosting, Containerized Backend trên EC2, pipeline CI/CD tự động và các dịch vụ AI/Database tích hợp.
 
 ---
 
@@ -64,13 +60,18 @@ EC2 Backend xử lý logic và tương tác trực tiếp với các dịch vụ
 
 ---
 
-### 4. Hướng Phát Triển & Tối Ưu Tiếp Theo (Suggestions)
+### 4. Hướng Phát Triển & Tối Ưu Tiếp Theo
 
-Nhóm mình cũng đang cân nhắc một số điểm tối ưu cho các phiên bản tiếp theo:
+Một số định hướng tối ưu cho các phiên bản tiếp theo:
 - **Security**: Chuyển EC2 Instance vào Private Subnet và dùng Application Load Balancer (ALB) ở Public Subnet để tăng cường bảo mật.
 - **Scalability**: Đổi EC2 đơn lẻ sang Auto Scaling Group hoặc dịch vụ AWS ECS / EKS khi lượng user tăng cao.
 - **Caching Database**: Tích hợp Amazon ElastiCache (Redis) để cache kết quả API từ OpenAI / MongoDB nhằm giảm chi phí call API và tăng tốc độ phản hồi.
 
 ---
 
-Mọi người trong group có nhận xét hoặc đóng góp gì cho mô hình kiến trúc dự án LearnSphere này của nhóm mình không? Rất mong nhận được phản hồi và trao đổi từ anh em!
+### LINK BÀI VIẾT THAM KHẢO & BÀI ĐĂNG GỐC
+
+- **Bài đăng thực tế trên Facebook Group AWS Study Group**:  
+  [https://www.facebook.com/groups/awsstudygroupfcj/permalink/2222081271890166/](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2222081271890166/)
+
+![Ảnh bài đăng thực tế Blog 2 trên AWS Study Group](/images/blog2-facebook-post.png)

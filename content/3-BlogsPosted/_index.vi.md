@@ -8,8 +8,8 @@ pre: " <b> 3. </b> "
 
 Dưới đây là danh sách các bài blog chia sẻ kiến thức chuyên môn đã đăng trên [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj):
 
-### [Blog 1 - Tại sao nhóm mình không dùng Amazon Bedrock Knowledge Bases dù đang làm chatbot RAG?](3.1-Blog1/)
-Bài viết phân tích lý do nhóm quyết định tự xây dựng pipeline RAG với FAISS thay vì sử dụng dịch vụ Fully Managed Knowledge Bases for Amazon Bedrock. Bài viết đi sâu so sánh sự đánh đổi giữa việc triển khai nhanh (Fully Managed RAG) và nhu cầu kiểm soát toàn bộ pipeline ingest (OCR với Amazon Textract, tùy biến chunking, metadata và phân quyền multi-tenancy) cho dự án thực tế.
+### [Blog 1 - Xây Dựng RAG Phức Tạp: Khi Nào Nên Tự Làm, Khi Nào Dùng Amazon Bedrock?](3.1-Blog1/)
+Bài viết phân tích và so sánh dưới góc nhìn nghiên cứu kiến trúc giữa giải pháp Fully Managed (Knowledge Bases for Amazon Bedrock) và phương án tự xây dựng pipeline RAG tùy chỉnh. Bài viết đi sâu làm rõ các khía cạnh đánh đổi (trade-offs) về tốc độ triển khai, khả năng tùy biến trích xuất OCR/Chunking, phân quyền Multi-tenancy và tối ưu chi phí vận hành.
 
 ---
 

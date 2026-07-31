@@ -45,13 +45,12 @@ Sau một run thành công cần đối chiếu:
 | S3 publish | Success |
 | CloudFront invalidation | Completed |
 
-#### Bằng chứng hiện có
+#### Bằng chứng triển khai
 
 ![Hai job triển khai LearnSphere hoàn tất trên GitHub Actions](/images/learnsphere-github-actions-overview.png)
 
 *Hình 5.45. Workflow production hoàn tất tuần tự Backend và Frontend. Trạng thái xanh của cả hai job là bằng chứng tổng hợp, nhưng vẫn phải kết hợp với health check và trạng thái AWS thay vì chỉ dựa vào giao diện GitHub.*
 
-#### Bằng chứng Instance Refresh
 
 ![Lịch sử Instance Refresh thành công của Backend ASG](/images/learnsphere-asg-instance-refresh-history.png)
 

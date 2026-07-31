@@ -46,13 +46,12 @@ Sau deploy:
 4. Đăng nhập và gọi một API có cookie.
 5. Kiểm tra upload presigned URL vẫn tuân thủ S3 CORS.
 
-#### Bằng chứng hiện có
+#### Bằng chứng triển khai
 
 ![Giao diện LearnSphere hoạt động trên tên miền production](/images/learnsphere-production-homepage.png)
 
 *Hình 5.36. LearnSphere được phân phối qua HTTPS trên môi trường production. Ảnh giao diện xác minh rằng CloudFront đã tải Frontend từ S3 và người dùng có thể truy cập ứng dụng bằng trình duyệt.*
 
-#### Bằng chứng nên bổ sung
 
 ![Các CloudFront invalidation đã hoàn tất](/images/learnsphere-cloudfront-invalidations.png)
 
