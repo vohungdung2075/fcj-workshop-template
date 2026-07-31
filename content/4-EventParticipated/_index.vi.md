@@ -9,7 +9,7 @@ pre: " <b> 4. </b> "
 
 Trong quá trình thực tập, em đã tham gia 3 sự kiện (events). Mỗi sự kiện là một trải nghiệm đáng nhớ mang lại nhiều kiến thức chuyên môn bổ ích, tư duy định hướng nghề nghiệp và cơ hội kết nối cộng đồng AWS tuyệt vời.
 
-### [Event 1](4.1-Event1/)
+### [Event 1](4.1-event1/)
 &emsp;**Tên sự kiện:** Meetup 13/06/2026  
 
 &emsp;**Thời gian:** 09:00 ngày 13/06/2026  
@@ -20,7 +20,7 @@ Trong quá trình thực tập, em đã tham gia 3 sự kiện (events). Mỗi s
 
 ---
 
-### [Event 2](4.2-Event2/)
+### [Event 2](4.2-event2/)
 &emsp;**Tên sự kiện:** Meetup 11/07/2026  
 
 &emsp;**Thời gian:** 09:00 ngày 11/07/2026  
@@ -31,7 +31,7 @@ Trong quá trình thực tập, em đã tham gia 3 sự kiện (events). Mỗi s
 
 ---
 
-### [Event 3](4.3-Event3/)
+### [Event 3](4.3-event3/)
 &emsp;**Tên sự kiện:** FCAJ - Agentic AI Build Week  
 
 &emsp;**Thời gian:** 09:00 ngày 25/07/2026  
